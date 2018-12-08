@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Restaurant search</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <section class="hero is-primary">
+        <div class="hero-body">
+          <div class="container">
+            <h1 class="title">
+              Enable CORS to fetch the data
+            </h1>
+          </div>
+        </div>
+    </section>
+    <section>
+      <div class="columns is-vcentered">
+        <div class="column is-1"></div>
+        <div class="column is-one-quarter">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div class="column">
+            <ul id="example" >
+                <li v-for="i in listData">Cafes starting with letter {{i.letter}} - {{i.value}}</li>
+            </ul>
+        </div>
+      </div>
+      <div class="columns">
+      <div class="column is-1"></div>
+        <div class="column is-5">
+            <div class="field">
+                <div class="control" id="example3">
+                  <input class="input is-primary" 
+                          v-model="search" 
+                          type="text" 
+                          placeholder="Search for a restaurant"
+                          v-on:input="searchItem">
+                  <div v-if="mainDataSorted.length === 0">
+                    <hr>
+                      <p><strong>Nothing was found...</strong></p>
+                  </div>
+                </div>
+                
+              </div>
+        </div>
+      </div>
+      <div class="columns is-vcentered">
+        <div class="column is-1"></div>
+        <div class="column">
+          <table class="table" id="example2">
+            <thead v-if="mainDataSorted.length !==0">
+              <th>Name</th>
+              <th>Address</th>
+              <th>Phone</th>
+            </thead>
+            <tbody>
+              <tr v-for="i in mainDataSorted">
+                  <td>{{i.Name_en}}</td>
+                  <td>{{i.Address_en}}</td>
+                  <td>{{i.PublicPhone_en[0].PublicPhone_en}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="./_javascript/main.js"></script>
+    
+  </body>
+</html>
+
+<canvas id="myChart"></canvas>
