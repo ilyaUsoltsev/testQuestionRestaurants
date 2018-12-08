@@ -1,5 +1,5 @@
 
-var ctx = document.getElementById('myChart').getContext('2d');
+let ctx = document.getElementById('myChart').getContext('2d');
 let listData = [];
 let mainData = [];
 let listDataObject = {};
@@ -25,7 +25,7 @@ drawChart = () => {
 });
 }
 
-var dataSet={
+let dataSet={
     search: search,
     listData: listData,
     mainData: mainData,
